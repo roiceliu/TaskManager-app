@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
+import { CoreModule } from './_services/core.module';
 import { QuotesModule } from './quotes/quotes.module';
 // import { CredentialsComponent } from './credentials/credentials.component';
 

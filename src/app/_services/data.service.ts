@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { IQuote } from '../shared/interfaces';
+import { IQuote } from '../_shared/interfaces';
 
 @Injectable()
 export class DataService {

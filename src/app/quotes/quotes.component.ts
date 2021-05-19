@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DataService } from '../core/data.service';
-import { IQuote } from '../shared/interfaces';
+import { DataService } from '../_services/data.service';
+import { IQuote } from '../_shared/interfaces';
 
 @Component({
   selector: 'app-quotes',
