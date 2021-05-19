@@ -1,0 +1,32 @@
+<!-- <filter-textbox (changed)="filter($event)"></filter-textbox> -->
+<br />
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th >QuoteID</th>
+            <th >QuoteType</th>
+            <th >Contact</th>
+            <th >Task</th>
+            <th >TaskType</th>
+            <th >Due Date</th>
+        </tr>
+    </thead>
+    <tr *ngFor = 'let quote of filteredQuoteList' >
+        <td>
+            <a>
+                {{quote.QuoteID}}
+            </a>
+        </td>
+        <td> 
+            {{quote.QuoteType}}
+        </td>
+        <td> {{quote.Contact}} </td>
+        <td> {{quote.Task}} </td>
+        <td> {{quote.TaskType}} </td>
+        <td> {{quote.DueDate}} </td>
+    </tr>
+   
+</table>
+
+<br />
