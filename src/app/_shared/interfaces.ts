@@ -6,3 +6,10 @@ export interface IQuote{
     TaskType: string;
     DueDate: Date;
 }
+
+export interface IUser{
+    userName: string;
+    password: string;
+    token: string;
+    expires: Date;
+}

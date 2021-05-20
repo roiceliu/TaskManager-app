@@ -18,6 +18,7 @@ export class QuotesComponent implements OnInit {
     this.dataService.getQuotes().subscribe((q: IQuote[]) => {
       this.quotes = q;
     });
-
   }
+  
 }
+
