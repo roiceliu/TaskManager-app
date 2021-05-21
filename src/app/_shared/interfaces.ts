@@ -7,7 +7,7 @@ export interface IQuote{
     DueDate: Date;
 }
 
-export interface IUser{
+export class User{
     userName: string;
     password: string;
     token: string;

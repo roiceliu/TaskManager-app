@@ -32,7 +32,7 @@ export class DataService {
             .pipe(
                 // catchError( this.handleError)
                 catchError((e) => {
-                    throw 'error in source. Details:' + e;
+                    throw 'DataService error in source. Details:' + e;
                 })
             );
     }

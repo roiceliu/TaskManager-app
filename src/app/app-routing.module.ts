@@ -1,7 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './credential/login/login.component';
+import { RegisterComponent } from './credential/register/register.component';
+import { QuotesComponent } from './quotes/quotes.component';
+import { AuthGuard } from './_helpers/auth.guard';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '', component: QuotesComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'login', component: LoginComponent
+  },
+  {
+    path: 'register',component: RegisterComponent
+  },
+  //default route with wildcard path --> Quotes page 
+  {
+    path: '**', redirectTo: '/'
+  }
+  
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
