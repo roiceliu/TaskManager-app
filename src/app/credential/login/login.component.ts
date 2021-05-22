@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { waitForAsync } from '@angular/core/testing';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../_services/authentication.service';
@@ -30,8 +29,11 @@ export class LoginComponent implements OnInit {
   login() {
     const val = this.form.value;
     this.auth.login(val.userName, val.password).subscribe(
-      data => {
+     ( data) => {
         this.router.navigateByUrl('/');
+      },
+      (e) => {
+        console.log("login error occurs at login subscribe")
       }
     )
   }

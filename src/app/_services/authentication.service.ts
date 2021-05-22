@@ -21,10 +21,12 @@ export class AuthenticationService{
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
+    //{Login status}: check if user still logged in
     public get currentUserValue(): User{
         return this.currentUserSubject.value;
     }
 
+    //{Login}
     login(userName: any, password: any) {
         // put user info in a formated package with header + body
         const headers = {
@@ -39,19 +41,37 @@ export class AuthenticationService{
                 sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
                 this.currentUserSubject.next(currentUser);
                 return;
-            },
-                catchError((e) => {
-                    throw 'Authentication-Service error in requesting from server. Details:' + e;
+            }),
+            catchError((e) => {
+                    throw 'Authentication-Service error  -failed login in requesting from server. Details:' + e;
             })
             
-            )
         )
     }
 
+    // {Logout}
     logout() {
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
+
+    //{Register user}
+    register(userName:string, password:string,confirmPassword:string) {
+        // put user info in a formated package with header + body
+        const headers = {
+            'Content-Type':'application/x-www-form-urlencoded',
+            'Accept': '*/*',
+        }
+
+        const body = new HttpParams().set('Email', userName).set('Password', password).set('ConfirmPassword', confirmPassword);
+
+        return this.http.post(`${environment.apiUrl}api/Account/register`, body, { headers }).pipe(
+            catchError((e) => {
+                throw 'Authentication-Service error  -failed Register in requesting from server. Details:' + e;
+            })
+        );
+    }
+
 
     private convert(JsonUser: any): User{
         let user: User = new User();
