@@ -23,7 +23,8 @@ export class AuthenticationService{
 
     //{Login status}: check if user still logged in
     public get currentUserValue(): User{
-        return this.currentUserSubject.value;
+        let user: User = this.convert(this.currentUserSubject.value);
+        return user;
     }
 
     //{Login}
@@ -76,7 +77,7 @@ export class AuthenticationService{
     private convert(JsonUser: any): User{
         let user: User = new User();
         user.userName = JsonUser.userName;
-        user.token = JsonUser.token_type;
+        user.token = JsonUser.access_token;
         user.expires = JsonUser['.expires'];
         return user;
     }

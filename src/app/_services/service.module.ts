@@ -8,4 +8,4 @@ import { AuthenticationService } from './authentication.service';
   imports: [HttpClientModule],
   providers: [DataService, AuthenticationService],
 })
-export class CoreModule {}
+export class ServiceModule {}

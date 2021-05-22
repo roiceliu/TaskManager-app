@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
 
   constructor(private fileBuilder: FormBuilder, private auth: AuthenticationService, private router: Router) {
-    //if user already logged in, redirect to quotes page
     if (this.auth.currentUserValue)
       this.router.navigate(['/']);
   }
