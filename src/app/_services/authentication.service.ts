@@ -23,6 +23,7 @@ export class AuthenticationService{
 
     //{Login status}: check if user still logged in
     public get currentUserValue(): User{
+        if (!this.currentUserSubject.value) return null;
         let user: User = this.convert(this.currentUserSubject.value);
         return user;
     }

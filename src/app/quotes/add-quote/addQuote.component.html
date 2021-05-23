@@ -1,0 +1,28 @@
+<form [formGroup]="form">
+    <fieldset>
+      <legend>Create a quote</legend>
+      <div class="form-field">
+        <label>Quote Type:</label>
+        <input name="QuoteType" formControlName="QuoteType" />
+      </div>
+      <div class="form-field">
+        <label>Contact:</label>
+        <input name="Contact" formControlName="Contact" />
+      </div>
+      <div class="form-field">
+        <label>Task:</label>
+        <input name="Task" formControlName="Task" />
+      </div>
+      <div class="form-field">
+        <label>Task Type:</label>
+        <input name="TaskType" formControlName="TaskType" />
+      </div>
+      <div class="form-field">
+        <label>DueDate:</label>
+        <input name="DueDate" formControlName="DueDate" />
+      </div>
+    </fieldset>
+    <div class="form-buttons">
+      <button class="button button-primary" (click)="create()">Create</button>
+    </div>
+  </form>

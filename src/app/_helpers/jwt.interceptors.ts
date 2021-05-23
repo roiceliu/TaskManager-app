@@ -20,7 +20,7 @@ export class JwtInterceptor implements HttpInterceptor{
             });
         }
 
-        debugger;
+       
         //send request with the added header out
         return next.handle(request);
     }

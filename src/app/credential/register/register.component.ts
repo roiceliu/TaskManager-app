@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MustMatch, PatternValidator } from 'src/app/_helpers/formHelper.validator';
+import {
+  MustMatch,
+  PatternValidator,
+} from 'src/app/_helpers/formHelper.validator';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 
 @Component({
@@ -19,11 +17,7 @@ export class RegisterComponent implements OnInit {
   error: string;
   submitted: boolean;
 
-  constructor(
-    private fileBuilder: FormBuilder,
-    private router: Router,
-    private auth: AuthenticationService
-  ) {}
+  constructor(private router: Router, private auth: AuthenticationService) {}
 
   ngOnInit(): void {
     this.submitted = false;
@@ -34,10 +28,12 @@ export class RegisterComponent implements OnInit {
         password: new FormControl('', [
           Validators.required,
           Validators.minLength(6),
-          PatternValidator(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/, {hasSpecialCase: true}),
+          PatternValidator(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/, {
+            hasSpecialCase: true,
+          }),
           PatternValidator(/\d/, { hasNumber: true }),
           PatternValidator(/[A-Z]/, { hasCapitalCase: true }),
-          PatternValidator(/[a-z]/, { hasSmallCase: true })
+          PatternValidator(/[a-z]/, { hasSmallCase: true }),
         ]),
         confirmPassword: new FormControl('', Validators.required),
       },
@@ -49,7 +45,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.submitted = true;   
+    this.submitted = true;
     if (this.form.invalid) return;
 
     let val = this.form.value;
@@ -67,5 +63,4 @@ export class RegisterComponent implements OnInit {
   get formValue() {
     return this.form.controls;
   }
-
 }
