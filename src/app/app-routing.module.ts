@@ -7,7 +7,7 @@ import { AuthGuard } from './_helpers/auth.guard';
 
 const routes: Routes = [
   {
-    path: '', component: QuotesComponent, canActivate: [AuthGuard]
+    path: '', redirectTo: '/quotes', pathMatch:'full'
   },
   {
     path: 'login', component: LoginComponent
@@ -16,9 +16,9 @@ const routes: Routes = [
     path: 'register',component: RegisterComponent
   },
   //default route with wildcard path --> Quotes page 
-  {
-    path: '**', redirectTo: '/'
-  }
+  // {
+  //   path: '**', redirectTo:'/quotes'
+  // }
   
 ];
 

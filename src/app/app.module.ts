@@ -8,12 +8,13 @@ import { QuotesModule } from './quotes/quotes.module';
 import { CredentialModule } from './credential/credential.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './_helpers/jwt.interceptors';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, QuotesModule, ServiceModule,CredentialModule],
+  imports: [BrowserModule, AppRoutingModule, QuotesModule, ServiceModule,CredentialModule, BrowserAnimationsModule,MatTableModule],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })

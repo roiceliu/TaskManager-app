@@ -1,32 +1,44 @@
 <!-- <filter-textbox (changed)="filter($event)"></filter-textbox> -->
+<button routerLink = '/create-quote'>Create a Quote</button>
 <br />
 <br />
+
+
+  
+
+<hr/>
+
+
 <table class="table table-hover">
-    <thead>
-        <tr>
-            <th >QuoteID</th>
-            <th >QuoteType</th>
-            <th >Contact</th>
-            <th >Task</th>
-            <th >TaskType</th>
-            <th >Due Date</th>
-        </tr>
-    </thead>
-    <tr *ngFor = 'let quote of filteredQuoteList' >
-        <td>
-            <a>
-                {{quote.QuoteID}}
-            </a>
-        </td>
-        <td> 
-            {{quote.QuoteType}}
-        </td>
-        <td> {{quote.Contact}} </td>
-        <td> {{quote.Task}} </td>
-        <td> {{quote.TaskType}} </td>
-        <td> {{quote.DueDate}} </td>
+  <thead>
+    <tr>
+      <th>QuoteID</th>
+      <th>QuoteType</th>
+      <th>Contact</th>
+      <th>Task</th>
+      <th>TaskType</th>
+      <th>Due Date</th>
+      <th></th>
     </tr>
-   
+  </thead>
+  <tr *ngFor="let quote of filteredQuoteList">
+    <td>
+      <a>
+        {{ quote.QuoteID }}
+      </a>
+    </td>
+    <td>
+      {{ quote.QuoteType }}
+    </td>
+    <td>{{ quote.Contact }}</td>
+    <td>{{ quote.Task }}</td>
+    <td>{{ quote.TaskType }}</td>
+    <td>{{ quote.DueDate }}</td>
+    <td>
+      <!-- binding the link with quote id in activeRoute  -->
+      <button [routerLink]="['/quotes', quote.QuoteID]">Edit</button>
+    </td>
+  </tr>
 </table>
 
 <br />

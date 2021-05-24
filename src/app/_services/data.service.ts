@@ -7,7 +7,7 @@ import { IQuote } from '../_shared/interfaces';
 
 @Injectable({providedIn:'root'})
 export class DataService {
-    baseUrl: string = environment.apiUrl + 'api/values';
+    baseUrl: string = environment.apiUrl + 'api/values/';
     header = {
         'Accept': '*/*',
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -56,7 +56,7 @@ export class DataService {
 
     //GET QUOTE BY ID
     getQuote(id: number):Observable<IQuote> {
-        return this.http.get<IQuote>(`${this.baseUrl + id}`).pipe(
+        return this.http.get<IQuote>(`${this.baseUrl+id}`).pipe(
             catchError((e) => {
                 throw "Error occurs in creating quote. Details:" + e;
             })

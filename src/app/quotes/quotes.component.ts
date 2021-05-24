@@ -14,10 +14,7 @@ export class QuotesComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    //since it takes time to get data from server --> async
-    this.dataService.getQuotes().subscribe((q: IQuote[]) => {
-      this.quotes = q;
-    });
+   
   }
   
 }

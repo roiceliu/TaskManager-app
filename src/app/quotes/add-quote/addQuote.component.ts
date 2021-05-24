@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { DataService } from "src/app/_services/data.service";
 import { IQuote } from "src/app/_shared/interfaces";
 
@@ -12,7 +13,7 @@ export class AddQuoteComponent implements OnInit{
     submitted: boolean;
     error: string;
 
-    constructor(private dataService: DataService) { }
+    constructor(private dataService: DataService, private router: Router) { }
     
     ngOnInit() {
         this.submitted = false;
@@ -30,6 +31,8 @@ export class AddQuoteComponent implements OnInit{
 
     create() {
         let val = this.form.value;
+        if (this.form.invalid) return;
+
         //set up quote information
         const data: IQuote = {
             QuoteID : null,
@@ -42,6 +45,8 @@ export class AddQuoteComponent implements OnInit{
         this.dataService.createQuote(data).subscribe(
             () => {
                 // TODO: redirect to list quotes + update list quotes
+                this.router.navigate(['/quotes']);
+
              },
             (e:any) => {
                 this.error = "Create quote failed. Try Again ";

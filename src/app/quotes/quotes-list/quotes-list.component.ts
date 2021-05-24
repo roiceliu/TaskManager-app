@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/_services/data.service';
 import { IQuote } from '../../_shared/interfaces';
 
 @Component({
@@ -21,7 +22,12 @@ export class QuotesListComponent implements OnInit {
 
   filteredQuoteList: IQuote[] = [];
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+     //since it takes time to get data from server --> async
+     this.dataService.getQuotes().subscribe((q: IQuote[]) => {
+      this.filteredQuoteList = q;
+    });
+  }
 }

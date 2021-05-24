@@ -1,0 +1,68 @@
+<h3>Quote Details</h3>
+<form *ngIf = "quote">
+    <div class="form-group">
+      <label>QuoteID</label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="quote.QuoteID"
+        name="QuoteID"
+      />
+    </div>
+
+    <div class="form-group">
+      <label >Quote Type: </label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="quote.QuoteType"
+        name="QuoteType"
+      />
+    </div>
+
+    <div class="form-group">
+        <label>Contact: </label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="quote.Contact"
+          name="Contact"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label >Task: </label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="quote.Task"
+          name="Task"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Task Type: </label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="quote.TaskType"
+          name="TaskType"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label >Due Date: </label>
+        <input
+          type="date"
+          class="form-control"
+          [ngModel]="quote.DueDate | date:'yyyy-MM-dd'" (ngModelChange)="quote.DueDate = $event" name="DueDate"
+        />
+      </div>
+      <a routerLink = '/quotes'> Back </a>
+      <button class="button button-primary" (click)='delete(quote.QuoteID)'>
+        Delete
+      </button>
+      <button class="button button-primary" (click) ='update(quote.QuoteID, quote)'>
+          Update
+      </button>
+  </form>
