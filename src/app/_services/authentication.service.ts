@@ -5,6 +5,7 @@ import { catchError, map } from "rxjs/operators";
 
 import { User } from "../_shared/interfaces";
 import {environment} from '../../environments/environment'
+import { Router } from "@angular/router";
 
 
 
@@ -15,7 +16,7 @@ export class AuthenticationService{
     public currentUser: Observable<User>;
     private currentUserSubject: BehaviorSubject<User>;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private router: Router) {
         //setup users
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
@@ -53,8 +54,9 @@ export class AuthenticationService{
 
     // {Logout}
     logout() {
+        debugger;
         localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
+        this.currentUserSubject.next(null); 
     }
 
     //{Register user}

@@ -8,10 +8,11 @@ import { RouterModule } from '@angular/router';
 import { QuoteDetailsComponent } from './quote-details/quote-details.component';
 import { QuotesRoutingModule } from './quotes-routing.module';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatButtonModule } from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule,QuotesRoutingModule, MatTableModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule,QuotesRoutingModule, MatTableModule,MatButtonModule,MatInputModule],
   declarations: [QuotesComponent, QuotesListComponent, AddQuoteComponent, QuoteDetailsComponent],
   exports: [QuotesComponent],
 })

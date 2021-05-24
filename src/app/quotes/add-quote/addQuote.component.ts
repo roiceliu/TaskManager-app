@@ -6,7 +6,8 @@ import { IQuote } from "src/app/_shared/interfaces";
 
 @Component({
     selector: 'app-add-quote',
-    templateUrl: './addQuote.component.html'
+    templateUrl: './addQuote.component.html',
+    styleUrls: ['../quote-details/quote-details.component.css']
 })
 export class AddQuoteComponent implements OnInit{
     form: FormGroup;

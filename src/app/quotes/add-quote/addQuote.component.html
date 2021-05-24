@@ -1,34 +1,39 @@
-<h3>Create a quote</h3>
+
 <form [formGroup]="form">
-    <fieldset>
+    <fieldset class='formset'>
       <legend>Create a quote</legend>
-      <div class="form-field">
-        <label>Quote Type:</label>
-        <input name="QuoteType" formControlName="QuoteType" />
+      <mat-form-field Details class="form-group">
+        <mat-label>Quote Type:</mat-label>
+        <input matInput name="QuoteType" formControlName="QuoteType" required/>
         <div>
           
         </div>
-      </div>
-      <div class="form-field">
-        <label>Contact:</label>
-        <input name="Contact" formControlName="Contact" />
-      </div>
-      <div class="form-field">
-        <label>Task:</label>
-        <input name="Task" formControlName="Task" />
-      </div>
-      <div class="form-field">
-        <label>Task Type:</label>
-        <input name="TaskType" formControlName="TaskType" />
-      </div>
-      <div class="form-field">
-        <label>DueDate:</label>
-        <input type= 'date' name="DueDate" formControlName="DueDate" />
-      </div>
+      </mat-form-field>
+      <mat-form-field class="form-group">
+        <mat-label>Contact:</mat-label>
+        <input matInput name="Contact" formControlName="Contact" required />
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <mat-label>Task:</mat-label>
+        <input matInput name="Task" formControlName="Task" />
+      </mat-form-field>
+
+
+      <mat-form-field class="form-group">
+        <mat-label>Task Type:</mat-label>
+        <input required matInput name="TaskType" formControlName="TaskType" />
+      </mat-form-field>
+
+
+      <mat-form-field class="form-group">
+        <mat-label>DueDate:</mat-label>
+        <input required matInput type= 'date' name="DueDate" formControlName="DueDate" />
+      </mat-form-field>
     </fieldset>
     <div class="form-buttons">
-      <a routerLink = '/quotes'> Back </a>
-      <button type = "submit" class="button button-primary" (click)="create()">Create</button>
+      <a mat-button color='primary' routerLink = '/quotes'> Back </a>
+      <button mat-raised-button color='primary' type = "submit" class="button button-primary" (click)="create()">Create</button>
     </div>
     
   </form>

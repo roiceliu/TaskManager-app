@@ -8,7 +8,8 @@ import { IQuote } from "src/app/_shared/interfaces";
 
 @Component({
     selector: 'app-quote-details',
-    templateUrl: './quote-details.component.html'
+    templateUrl: './quote-details.component.html',
+    styleUrls:['quote-details.component.css']
 })
 export class QuoteDetailsComponent implements OnInit{
     id: number;

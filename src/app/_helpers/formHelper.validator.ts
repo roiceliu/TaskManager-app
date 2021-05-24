@@ -12,7 +12,12 @@ export const MustMatch: ValidatorFn =
     const password = control.get('password');
     const confirmPassword = control.get('confirmPassword');
 
-    // if not matching
+    // if not matching, set confirmPassword as well
+    if (password.value !== confirmPassword.value)
+      confirmPassword.setErrors({ mustMatch: true });
+    else
+      confirmPassword.setErrors(null);
+
     return password.value !== confirmPassword.value
       ? { mustMatch: true }
       : null;

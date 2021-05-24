@@ -11,6 +11,7 @@ import { AuthenticationService } from '../../_services/authentication.service';
 export class LoginComponent implements OnInit {
   //needs formModule at credential, binding to form
   form: FormGroup;
+  error: string;
 
   constructor(private fileBuilder: FormBuilder, private auth: AuthenticationService, private router: Router) {
     if (this.auth.currentUserValue)
@@ -28,11 +29,12 @@ export class LoginComponent implements OnInit {
   login() {
     const val = this.form.value;
     this.auth.login(val.userName, val.password).subscribe(
-     ( data) => {
+      (data) => {
+        this.error = null;
         this.router.navigateByUrl('/');
       },
       (e) => {
-        console.log("login error occurs at login subscribe")
+        this.error = 'The userName or Password entered is invalid'
       }
     )
   }

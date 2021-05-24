@@ -1,0 +1,8 @@
+.formset{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group {
+    margin: 10px 30px
+}

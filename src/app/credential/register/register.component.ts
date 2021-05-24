@@ -46,6 +46,8 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.submitted = true;
+    debugger;
+    this.formValue['confirmPassword'].errors;
     if (this.form.invalid) return;
 
     let val = this.form.value;

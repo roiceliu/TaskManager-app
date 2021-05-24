@@ -1,15 +1,63 @@
 <!-- <filter-textbox (changed)="filter($event)"></filter-textbox> -->
-<button routerLink = '/create-quote'>Create a Quote</button>
+<button mat-button  (click) = "logout">Logout</button>
+<button mat-raised-button color='primary' routerLink="/create-quote">Create a Quote</button>
 <br />
 <br />
 
+<table mat-table [dataSource]="filteredQuoteList" class="mat-elevation-z8">
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
 
-  
+  <!-- ID Column -->
+  <ng-container matColumnDef="QuoteID">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.QuoteID }}</td>
+  </ng-container>
 
-<hr/>
+  <!-- Quote Type Column -->
+  <ng-container matColumnDef="QuoteType">
+    <th mat-header-cell *matHeaderCellDef>Quote Type</th>
+    <td mat-cell *matCellDef="let element">{{ element.QuoteType }}</td>
+  </ng-container>
+
+  <!-- Contact Column -->
+  <ng-container matColumnDef="Contact">
+    <th mat-header-cell *matHeaderCellDef>Contact</th>
+    <td mat-cell *matCellDef="let element">{{ element.Contact }}</td>
+  </ng-container>
+
+  <!-- Task Column -->
+  <ng-container matColumnDef="Task">
+    <th mat-header-cell *matHeaderCellDef>Task</th>
+    <td mat-cell *matCellDef="let element">{{ element.Task }}</td>
+  </ng-container>
+
+  <!-- Task Type Column -->
+  <ng-container matColumnDef="TaskType">
+    <th mat-header-cell *matHeaderCellDef>Task Type</th>
+    <td mat-cell *matCellDef="let element">{{ element.TaskType }}</td>
+  </ng-container>
+
+  <!-- Task Column -->
+  <ng-container matColumnDef="DueDate">
+    <th mat-header-cell *matHeaderCellDef>DueDate</th>
+    <td mat-cell *matCellDef="let element">{{ element.DueDate }}</td>
+  </ng-container>
+
+  <!-- Edit column -->
+  <ng-container matColumnDef="Edit">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-stroked-button color='primary' [routerLink]="['/quotes', element.QuoteID]">Edit</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
 
 
-<table class="table table-hover">
+<!-- <table class="table table-hover">
   <thead>
     <tr>
       <th>QuoteID</th>
@@ -34,11 +82,11 @@
     <td>{{ quote.Task }}</td>
     <td>{{ quote.TaskType }}</td>
     <td>{{ quote.DueDate }}</td>
-    <td>
+    <td> -->
       <!-- binding the link with quote id in activeRoute  -->
-      <button [routerLink]="['/quotes', quote.QuoteID]">Edit</button>
+      <!-- <button [routerLink]="['/quotes', quote.QuoteID]">Edit</button>
     </td>
   </tr>
 </table>
 
-<br />
+<br /> -->

@@ -1,68 +1,95 @@
-<h3>Quote Details</h3>
+
 <form *ngIf = "quote">
-    <div class="form-group">
-      <label>QuoteID</label>
+  <fieldset class="formset">
+    <legend>Quote Details</legend>
+    <mat-form-field class="form-group">
+      <mat-label>QuoteID</mat-label>
       <input
+      matInput
+      disabled
         type="number"
         class="form-control"
         [(ngModel)]="quote.QuoteID"
         name="QuoteID"
       />
-    </div>
+    </mat-form-field>
 
-    <div class="form-group">
-      <label >Quote Type: </label>
-      <input
+    <mat-form-field class="form-group">
+      <mat-label >Quote Type: </mat-label>
+      <input matInput
         type="text"
         class="form-control"
         [(ngModel)]="quote.QuoteType"
         name="QuoteType"
+        required
       />
-    </div>
+      <mat-error>
+        Quote Type is required
+      </mat-error>
+    </mat-form-field>
 
-    <div class="form-group">
-        <label>Contact: </label>
-        <input
+    <mat-form-field class="form-group">
+        <mat-label>Contact: </mat-label>
+        <input matInput
           type="text"
           class="form-control"
           [(ngModel)]="quote.Contact"
           name="Contact"
+          required
         />
-      </div>
+        <mat-error>
+          Contact is required
+        </mat-error>
+      </mat-form-field>
   
-      <div class="form-group">
-        <label >Task: </label>
-        <input
+      <mat-form-field class="form-group">
+        <mat-label >Task: </mat-label>
+        <input matInput
           type="text"
           class="form-control"
           [(ngModel)]="quote.Task"
           name="Task"
+          
         />
-      </div>
+     
+      </mat-form-field>
 
-      <div class="form-group">
-        <label>Task Type: </label>
-        <input
+      <mat-form-field class="form-group">
+        <mat-label>Task Type: </mat-label>
+        <input matInput
           type="text"
           class="form-control"
           [(ngModel)]="quote.TaskType"
           name="TaskType"
+          required
         />
-      </div>
+        <mat-error>
+          Task type is required
+        </mat-error>
+      </mat-form-field>
   
-      <div class="form-group">
-        <label >Due Date: </label>
-        <input
+      <mat-form-field class="form-group">
+        <mat-label >Due Date: </mat-label>
+        <input matInput
           type="date"
           class="form-control"
           [ngModel]="quote.DueDate | date:'yyyy-MM-dd'" (ngModelChange)="quote.DueDate = $event" name="DueDate"
+          required
         />
-      </div>
-      <a routerLink = '/quotes'> Back </a>
-      <button class="button button-primary" (click)='delete(quote.QuoteID)'>
+        <mat-error>
+          Due date is required
+        </mat-error>
+      </mat-form-field>
+    </fieldset>
+
+      <div>
+        <a mat-button routerLink = '/quotes'> Back </a>
+      <button mat-stroked-button color='primary' class="button button-primary" (click)='delete(quote.QuoteID)'>
         Delete
       </button>
-      <button class="button button-primary" (click) ='update(quote.QuoteID, quote)'>
+      <button mat-stroked-button color='primary'class="button button-primary" (click) ='update(quote.QuoteID, quote)'>
           Update
       </button>
+      </div>
+      
   </form>
