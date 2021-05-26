@@ -1,0 +1,8 @@
+<div>
+    <legend>Delete Quote</legend>
+    <p>Are you sure to delete this quote #{{data}}?</p>
+    <div>
+        <button [mat-dialog-close] = "'delete'" cdkFocusInitial>Confirm Delete</button>
+        <button (click) = "cancel()">Cancel</button>
+    </div>
+</div>

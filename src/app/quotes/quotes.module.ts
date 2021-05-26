@@ -5,15 +5,20 @@ import { QuotesListComponent } from './quotes-list/quotes-list.component';
 import { AddQuoteComponent } from './add-quote/addQuote.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { QuoteDetailsComponent } from './quote-details/quote-details.component';
+import { QuoteDetailsDialogComponent } from './quote-details/dialog-quote-details.component';
 import { QuotesRoutingModule } from './quotes-routing.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { QuoteUpdateDialogComponent } from './quote-update/dialog-quote-update.component';
+import { DeleteQuoteComponent } from './delete-quote/dialog-delete-quote.component';
+
+
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule,QuotesRoutingModule, MatTableModule,MatButtonModule,MatInputModule],
-  declarations: [QuotesComponent, QuotesListComponent, AddQuoteComponent, QuoteDetailsComponent],
-  exports: [QuotesComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule,QuotesRoutingModule, MatTableModule,MatButtonModule,MatInputModule,MatDialogModule],
+  declarations: [QuotesComponent, QuotesListComponent, AddQuoteComponent, QuoteDetailsDialogComponent,QuoteUpdateDialogComponent, DeleteQuoteComponent],
+  exports: [QuotesComponent]
 })
 export class QuotesModule {}

@@ -1,5 +1,5 @@
 <!-- <filter-textbox (changed)="filter($event)"></filter-textbox> -->
-<button mat-button  (click) = "logout">Logout</button>
+<button mat-button  (click) = "logout()">Logout</button>
 <button mat-raised-button color='primary' routerLink="/create-quote">Create a Quote</button>
 <br />
 <br />
@@ -41,14 +41,17 @@
   <!-- Task Column -->
   <ng-container matColumnDef="DueDate">
     <th mat-header-cell *matHeaderCellDef>DueDate</th>
-    <td mat-cell *matCellDef="let element">{{ element.DueDate }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.DueDate | date: "MM-dd-yyyy" }}</td>
   </ng-container>
 
   <!-- Edit column -->
-  <ng-container matColumnDef="Edit">
+  <ng-container matColumnDef="Operations">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element">
-      <button mat-stroked-button color='primary' [routerLink]="['/quotes', element.QuoteID]">Edit</button>
+      <!-- <button mat-stroked-button color='primary' [routerLink]="['/quotes', element.QuoteID]">Edit</button> -->
+      <button mat-stroked-button color='primary' (click) = 'view(element.QuoteID)'>View</button>
+      <button mat-stroked-button color='primary' (click) = 'updateModal(element.QuoteID)'>Edit</button>
+      <button mat-stroked-button color='primary' (click) = 'delete(element.QuoteID)'>Delete</button>
     </td>
   </ng-container>
 
@@ -57,36 +60,3 @@
 </table>
 
 
-<!-- <table class="table table-hover">
-  <thead>
-    <tr>
-      <th>QuoteID</th>
-      <th>QuoteType</th>
-      <th>Contact</th>
-      <th>Task</th>
-      <th>TaskType</th>
-      <th>Due Date</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tr *ngFor="let quote of filteredQuoteList">
-    <td>
-      <a>
-        {{ quote.QuoteID }}
-      </a>
-    </td>
-    <td>
-      {{ quote.QuoteType }}
-    </td>
-    <td>{{ quote.Contact }}</td>
-    <td>{{ quote.Task }}</td>
-    <td>{{ quote.TaskType }}</td>
-    <td>{{ quote.DueDate }}</td>
-    <td> -->
-      <!-- binding the link with quote id in activeRoute  -->
-      <!-- <button [routerLink]="['/quotes', quote.QuoteID]">Edit</button>
-    </td>
-  </tr>
-</table>
-
-<br /> -->

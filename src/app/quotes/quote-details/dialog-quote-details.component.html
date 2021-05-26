@@ -1,5 +1,5 @@
 
-<form *ngIf = "quote">
+<form >
   <fieldset class="formset">
     <legend>Quote Details</legend>
     <mat-form-field class="form-group">
@@ -73,7 +73,7 @@
         <input matInput
           type="date"
           class="form-control"
-          [ngModel]="quote.DueDate | date:'yyyy-MM-dd'" (ngModelChange)="quote.DueDate = $event" name="DueDate"
+          [ngModel]="quote.DueDate| date:'yyyy-MM-dd'" (ngModelChange)="quote.DueDate = $event" name="DueDate"
           required
         />
         <mat-error>
@@ -83,12 +83,8 @@
     </fieldset>
 
       <div>
-        <a mat-button routerLink = '/quotes'> Back </a>
-      <button mat-stroked-button color='primary' class="button button-primary" (click)='delete(quote.QuoteID)'>
-        Delete
-      </button>
-      <button mat-stroked-button color='primary'class="button button-primary" (click) ='update(quote.QuoteID, quote)'>
-          Update
+      <button mat-stroked-button color='primary' class="button button-primary" (click)='cancel()'>
+        BACK 
       </button>
       </div>
       

@@ -15,7 +15,6 @@ export class AuthGuard implements CanActivate{
          //check if user is logged in from se
         if (this.auth.currentUserValue) return true;
         
-        //FIXME
         //redirect back
         this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;

@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    if (this.form.invalid) return;
+
     const val = this.form.value;
     this.auth.login(val.userName, val.password).subscribe(
       (data) => {

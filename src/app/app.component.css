@@ -1,0 +1,7 @@
+.site-header{
+    display: flex;
+    justify-content: left;
+    margin: 20px 0;
+    margin-bottom: 50px;
+    font-weight: bold;
+}

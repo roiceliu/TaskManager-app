@@ -54,9 +54,9 @@ export class AuthenticationService{
 
     // {Logout}
     logout() {
-        debugger;
-        localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null); 
+        sessionStorage.removeItem('currentUser');
+        this.currentUserSubject.next(null);
+        this.router.navigateByUrl('/login');
     }
 
     //{Register user}
