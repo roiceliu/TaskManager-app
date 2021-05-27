@@ -13,12 +13,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { QuoteUpdateDialogComponent } from './quote-update/dialog-quote-update.component';
 import { DeleteQuoteComponent } from './delete-quote/dialog-delete-quote.component';
+import { FilterComponent } from './quotes-list/filter.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule,QuotesRoutingModule, MatTableModule,MatButtonModule,MatInputModule,MatDialogModule],
-  declarations: [QuotesComponent, QuotesListComponent, AddQuoteComponent, QuoteDetailsDialogComponent,QuoteUpdateDialogComponent, DeleteQuoteComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule,QuotesRoutingModule, MatTableModule,MatButtonModule,MatInputModule,MatDialogModule,NgxPaginationModule],
+  declarations: [QuotesComponent, QuotesListComponent, AddQuoteComponent, QuoteDetailsDialogComponent,QuoteUpdateDialogComponent, DeleteQuoteComponent, FilterComponent],
   exports: [QuotesComponent]
 })
 export class QuotesModule {}
