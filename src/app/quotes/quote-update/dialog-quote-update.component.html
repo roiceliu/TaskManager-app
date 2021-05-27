@@ -73,7 +73,7 @@
         matInput
         type="date"
         class="form-control"
-        [ngModel]="quote.DueDate | date: 'yyyy-MM-dd'"
+        [ngModel]="quote.DueDate | date: 'M/d/yy, h:mm a'"
         (ngModelChange)="quote.DueDate = $event"
         name="DueDate"
         required

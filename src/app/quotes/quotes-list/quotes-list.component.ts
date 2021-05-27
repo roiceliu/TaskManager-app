@@ -60,9 +60,8 @@ export class QuotesListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    debugger;
     this.selectedOrder = "QuoteID";
-    this.selectedValue = 5;
+    this.selectedValue = this.rows[2];
     this.renderList();
      //setup pagination
      this.PageConfig = {

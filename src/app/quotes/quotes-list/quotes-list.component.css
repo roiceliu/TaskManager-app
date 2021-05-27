@@ -1,3 +1,86 @@
-table{
-    width:100%;
+.quotes-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
+
+.quotes-head-wrapper{
+    display: flex;
+    justify-content: space-between;
+    background-color: #CED6D2;
+    height:30px;
+}
+
+.quotes-head-wrapper h3{
+    font-size:18px;
+    color:blue;
+    font-weight: bold;
+}
+
+.btn-primary{
+    background-color:#24C0A5;
+    border:none;
+    color:white;
+    height:30px;
+    text-align: center;
+    display: inline-block;
+}
+
+
+
+
+.quotelist-menu{
+    display: flex;
+    justify-content: space-between;
+    padding:15px 0;
+}
+
+.header2{
+    display: flex;
+    justify-content: space-between;
+}
+
+#select-entries{
+    font-weight: bold;
+}
+
+#search{
+    font-weight: bold;
+}
+
+
+
+
+
+.quotes-table{
+    width: 100%;
+    border-bottom: 2px solid black;
+    border-collapse: collapse;
+    padding:0 10px;
+}
+
+td{
+    border-bottom: 1px solid #CED6D2 ;
+    padding:0 10px;
+    max-width: 300px;
+    
+}
+
+th{
+    color: rgb(55, 51, 71);
+    text-align: left;
+    border-bottom: 2px solid black;
+    padding: 10px 10px
+}
+
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+pagination-controls{
+    height: 50px;
+}
+
+

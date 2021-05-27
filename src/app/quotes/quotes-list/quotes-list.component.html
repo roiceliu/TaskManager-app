@@ -1,99 +1,118 @@
 <!-- <filter-textbox (changed)="filter($event)"></filter-textbox> -->
-<div>
-  <button mat-button (click)="logout()">Logout</button>
-  <button mat-raised-button color="primary" routerLink="/create-quote">
-    Create a Quote
-  </button>
-</div>
-
-<br />
-<br />
-
-<div class="quotes-header-menu">
-  <div class="quotes-header">
-    <div id="select-entries">
-      Show
-      <select type="number" [ngModel]="selectedValue" (ngModelChange) = 'pageConfigChanged($event)'>
-        <option *ngFor="let r of rows" [ngValue]="r" >{{ r }}</option>
-      </select>
-      entries
+<div class="quotes-container">
+  <div class="quotes-head-wrapper">
+    <h3>Task Details</h3>
+    <div>
+      <button mat-button (click)="logout()">Logout</button>
+    <button mat-button class='btn btn-primary' routerLink="/create-quote">
+      Add Task
+    </button>
     </div>
+    
   </div>
 
-  <div class="quotes-header">
-    <div id="order-by">
-      <span>Order by:</span>
-      <select type="number" [ngModel]="selectedOrder"  (ngModelChange) = 'sort($event)' >
-        <option
-          *ngFor="
-            let title of displayedColumns.slice(0, displayedColumns.length - 1)
-          "
-          [ngValue]="title"
+  <div class="quotelist-menu">
+    <div class="quotes-header">
+      <div id="select-entries">
+        Show
+        <select
+          type="number"
+          [ngModel]="selectedValue"
+          (ngModelChange)="pageConfigChanged($event)"
         >
-          <div *ngIf="title !== 'Ops'">
-            {{ title }}
-          </div>
-        </option>
-      </select>
-      Descending:
-      <input type="checkbox" [ngModel]="isDesc" (ngModelChange) = 'desc($event)' />
+          <option *ngFor="let r of rows" [ngValue]="r">{{ r }}</option>
+        </select>
+        entries
+      </div>
     </div>
 
-    <div id="search">
-      Search:
-      <app-filter (changed)="filter($event)"></app-filter>
+    <div class="quotes-header header2">
+      <div id="order-by">
+        <span>Order by:</span>
+        <select
+          type="number"
+          [ngModel]="selectedOrder"
+          (ngModelChange)="sort($event)"
+        >
+          <option
+            *ngFor="
+              let title of displayedColumns.slice(
+                0,
+                displayedColumns.length - 1
+              )
+            "
+            [ngValue]="title"
+          >
+            <div *ngIf="title !== 'Ops'">
+              {{ title }}
+            </div>
+          </option>
+        </select>
+        Descending:
+        <input
+          type="checkbox"
+          [ngModel]="isDesc"
+          (ngModelChange)="desc($event)"
+        />
+      </div>
+
+      <div id="search">
+        Search:
+        <app-filter (changed)="filter($event)"></app-filter>
+      </div>
+    </div>
+  </div>
+
+  <div class="quotes-table-container">
+    <table class="quotes-table">
+      <th *ngFor="let title of displayedColumns">
+        {{ title === "Ops" ? " " : title }}
+      </th>
+      <tbody>
+      <tr *ngFor="let row of filteredQuoteList | paginate: PageConfig">
+        <td>{{ row.QuoteID }}</td>
+        <td>{{ row.QuoteType }}</td>
+        <td>{{ row.Contact }}</td>
+        <td>{{ row.Task }}</td>
+        <td>{{ row.TaskType }}</td>
+        <td>{{ row.DueDate | date: 'M/d/yy, h:mm a' }}</td>
+        <td>
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="view(row.QuoteID)"
+          >
+            View
+          </button>
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="updateModal(row.QuoteID)"
+          >
+            Edit
+          </button>
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="delete(row.QuoteID)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    </table>
+    <div class = 'pagination'>
+      <div>
+        showing {{ startItem }} to {{ endItem }} of
+        {{ filteredQuoteList.length }} items
+      </div>
+      <pagination-controls
+        (pageChange)="pageChanged($event)"
+      ></pagination-controls>
     </div>
   </div>
 </div>
-
-
-<table>
-  <th *ngFor = 'let title of displayedColumns'>
-    {{title === "Ops"? " " : title}}
-  </th>
-
-  <tr *ngFor = "let row of filteredQuoteList | paginate:PageConfig">
-    <td>{{row.QuoteID}}</td>
-    <td>{{row.QuoteType}}</td>
-    <td>{{row.Contact}}</td>
-    <td>{{row.Task}}</td>
-    <td>{{row.TaskType}}</td>
-    <td>{{row.DueDate | date: "MM-dd-yyyy" }}</td>
-    <td>
-      <button
-      mat-stroked-button
-      color="primary"
-      (click)="view(row.QuoteID)"
-    >
-      View
-    </button>
-    <button
-      mat-stroked-button
-      color="primary"
-      (click)="updateModal(row.QuoteID)"
-    >
-      Edit
-    </button>
-    <button
-      mat-stroked-button
-      color="primary"
-      (click)="delete(row.QuoteID)"
-    >
-      Delete
-    </button>
-    </td>
-  </tr>
-
-</table>
-<div>
-  <div>
-    showing {{startItem }} to {{endItem}} of {{filteredQuoteList.length}} items
-  </div>
-  <pagination-controls (pageChange) = "pageChanged($event)"></pagination-controls>
-</div>
-
-
-
 
 <!-- <table mat-table [dataSource]="filteredQuoteList" mat-class="mat-elevation-z8">
  
@@ -167,6 +186,3 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
 </table> -->
-
-
-
