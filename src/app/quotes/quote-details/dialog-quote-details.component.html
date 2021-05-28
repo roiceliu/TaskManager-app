@@ -43,15 +43,18 @@
       </mat-form-field>
   
       <mat-form-field class="form-group">
-        <mat-label >Task: </mat-label>
-        <input matInput
+        <mat-label >Task Description: </mat-label>
+        <textarea 
+          matInput
           type="text"
           class="form-control"
           [(ngModel)]="quote.Task"
           name="Task"
-          
-        />
-     
+          required
+        ></textarea>
+        <mat-error>
+          Task Description is required
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="form-group">

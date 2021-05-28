@@ -24,9 +24,8 @@ export class AddQuoteComponent implements OnInit{
             QuoteType: new FormControl('', Validators.required),
             Contact: new FormControl('', Validators.required),
             TaskType: new FormControl('',Validators.required),
-            // TODO: validate date
             DueDate: new FormControl('', Validators.required),
-            Task: new FormControl('')
+            Task: new FormControl('',Validators.required)
         })
     }
 
@@ -41,7 +40,7 @@ export class AddQuoteComponent implements OnInit{
             Contact: val.Contact,
             Task: val.Task,
             TaskType: val.TaskType,
-            DueDate: new Date(val.DueDate)
+            DueDate: new Date(val.DueDate + ' ')
         }
         this.dataService.createQuote(data).subscribe(
             () => {

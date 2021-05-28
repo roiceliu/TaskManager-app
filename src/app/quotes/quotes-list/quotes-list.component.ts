@@ -124,7 +124,10 @@ export class QuotesListComponent implements OnInit {
   //open update model and update
   updateModal(id: number) {
     const dialogRef = this.dialog.open(QuoteUpdateDialogComponent, {
+      height: '80%',
+      width: '80%',
       data: { QuoteID: id, isView: false },
+      panelClass: 'custom-dialog-container'
     });
 
     //update our list after model changes
@@ -135,7 +138,10 @@ export class QuotesListComponent implements OnInit {
 
   view(id: number) {
     const dialogRef = this.dialog.open(QuoteUpdateDialogComponent, {
+      height: '80%',
+      width: '80%',
       data: { QuoteID: id, isView: true },
+      panelClass: 'custom-dialog-container'
     });
 
     //update our list after model changes
@@ -147,6 +153,8 @@ export class QuotesListComponent implements OnInit {
   delete(id: number) {
     // direct to another modal
     const dialogRef = this.dialog.open(DeleteQuoteComponent, {
+      height: '30%',
+      width: '40%',
       data: id,
     });
 
@@ -174,11 +182,14 @@ export class QuotesListComponent implements OnInit {
 
   //filtering list through search String
   filter(value: string) {
+    debugger;
     if (value) {
       this.searchString = value;
       this.filteredQuoteList = this.quoteList.filter((quote: IQuote) => {
         if (!(quote.DueDate instanceof Date))
           quote.DueDate = new Date(quote.DueDate);
+        if (quote.Task == null)
+          quote.Task = '';
         return (quote.QuoteID.toString().indexOf(value) > -1 ||
           quote.QuoteType.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
           quote.Task.toLowerCase().indexOf(value.toLowerCase()) > -1 ||

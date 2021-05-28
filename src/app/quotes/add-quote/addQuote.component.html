@@ -15,12 +15,6 @@
       </mat-form-field>
 
       <mat-form-field class="form-group">
-        <mat-label>Task:</mat-label>
-        <input matInput name="Task" formControlName="Task" />
-      </mat-form-field>
-
-
-      <mat-form-field class="form-group">
         <mat-label>Task Type:</mat-label>
         <input required matInput name="TaskType" formControlName="TaskType" />
       </mat-form-field>
@@ -29,6 +23,11 @@
       <mat-form-field class="form-group">
         <mat-label>DueDate:</mat-label>
         <input required matInput type= 'date' name="DueDate" formControlName="DueDate" />
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <mat-label>Task Description:</mat-label>
+        <textarea matInput name="Task" formControlName="Task" ></textarea>
       </mat-form-field>
     </fieldset>
     <div class="form-buttons">
