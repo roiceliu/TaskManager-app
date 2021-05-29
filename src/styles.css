@@ -40,6 +40,17 @@ legend {
   padding: 0;
 }
 
+.btn-primary{
+  background-color:#24C0A5;
+  border:none;
+  color:white;
+  height:30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 
 

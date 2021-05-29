@@ -48,12 +48,13 @@ form{
     display: flex;
     margin:10px 0;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 #form-id{
     width:200px;
-    margin-left: 30px;
     display: flex;
+    margin-left: 100px;
     justify-content: space-between;
 }
 
@@ -63,6 +64,7 @@ form{
 
 .top-row{
     display: flex;
+    flex-wrap: wrap;
 }
 
 #textBox{
@@ -80,6 +82,11 @@ textarea{
 .btn-section{
     display: flex;
     justify-content: flex-end;
+}
+
+.button{
+    width: 100px;
+    margin-left:20px;
 }
 
 .error{

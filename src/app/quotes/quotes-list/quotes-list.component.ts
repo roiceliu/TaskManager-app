@@ -182,7 +182,6 @@ export class QuotesListComponent implements OnInit {
 
   //filtering list through search String
   filter(value: string) {
-    debugger;
     if (value) {
       this.searchString = value;
       this.filteredQuoteList = this.quoteList.filter((quote: IQuote) => {

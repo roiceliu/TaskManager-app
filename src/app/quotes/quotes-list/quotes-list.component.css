@@ -15,6 +15,11 @@
     font-size:18px;
     color:#3A42D6;
     font-weight: bold;
+    margin-left: 30px;
+}
+
+.header-btn{
+    display: flex;
 }
 
 .btn-primary{
@@ -23,10 +28,14 @@
     color:white;
     height:30px;
     text-align: center;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
+.btn-primary span{
+    text-align: center;
+}
 
 
 .quotelist-menu{
@@ -57,13 +66,13 @@
     border-bottom: 2px solid black;
     border-collapse: collapse;
     padding:0 10px;
+    min-height: 70%;
 }
 
 td{
     border-bottom: 1px solid #CED6D2 ;
     padding:0 10px;
     max-width: 300px;
-    
 }
 
 th{
@@ -71,6 +80,10 @@ th{
     text-align: left;
     border-bottom: 2px solid black;
     padding: 10px 10px
+}
+
+tr{
+    height: 50px;
 }
 
 .pagination{
@@ -81,6 +94,14 @@ th{
 
 pagination-controls{
     height: 50px;
+}
+
+
+.list-icons{
+    font-size: 18px;
+    color:#495A65;
+    margin: 0 5px;
+    cursor: pointer;
 }
 
 

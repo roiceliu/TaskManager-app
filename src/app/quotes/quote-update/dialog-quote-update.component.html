@@ -119,20 +119,18 @@
 
     <div class="btn-section">
       <button
-        mat-stroked-button
         *ngIf="!isView"
-        color="primary"
-        class="button button-primary"
+        class="button btn-primary"
         (click)="update(quote.QuoteID, quote)"
       >
+      <span class="material-icons-outlined"> save </span>
         Update
       </button>
       <button
-        mat-stroked-button
-        color="primary"
-        class="button button-primary"
+        class="button btn-primary"
         (click)="cancel()"
       >
+      <span class="material-icons-outlined"> {{ isView ? 'chevron_left':'cancel' }}</span>
         {{ isView ? "Back" : "Cancel" }}
       </button>
     </div>

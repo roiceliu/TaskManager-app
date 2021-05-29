@@ -2,13 +2,13 @@
 <div class="quotes-container">
   <div class="quotes-head-wrapper">
     <h3>Task Details</h3>
-    <div>
+    <div class ='header-btn'>
       <button mat-button (click)="logout()">Logout</button>
-    <button mat-button class='btn btn-primary' routerLink="/create-quote">
-      Add Task
-    </button>
+      <button mat-button class="btn btn-primary" routerLink="/create-quote">
+        <span class="material-icons-outlined"> post_add </span>
+        Add Task
+      </button>
     </div>
-    
   </div>
 
   <div class="quotelist-menu">
@@ -69,25 +69,37 @@
         {{ title === "Ops" ? " " : title }}
       </th>
       <tbody>
-      <tr *ngFor="let row of filteredQuoteList | paginate: PageConfig">
-        <td>{{ row.QuoteID }}</td>
-        <td>{{ row.QuoteType }}</td>
-        <td>{{ row.Contact }}</td>
-        <td>{{ row.Task }}</td>
-        <td>{{ row.TaskType }}</td>
-        <td>{{ row.DueDate | date: 'M/d/yy, h:mm a' }}</td>
-        <td>
+        <tr *ngFor="let row of filteredQuoteList | paginate: PageConfig">
+          <td>{{ row.QuoteID }}</td>
+          <td>{{ row.QuoteType }}</td>
+          <td>{{ row.Contact }}</td>
+          <td>{{ row.Task }}</td>
+          <td>{{ row.TaskType }}</td>
+          <td>{{ row.DueDate | date: "M/d/yy, h:mm a" }}</td>
+          <td>
+            <span class="material-icons list-icons" (click)="view(row.QuoteID)">
+              visibility
+            </span>
+
+            <span
+              class="material-icons-outlined list-icons"
+              (click)="updateModal(row.QuoteID)"
+            >
+              edit
+            </span>
+
+            <span
+              class="material-icons list-icons"
+              (click)="delete(row.QuoteID)"
+            >
+              delete
+            </span>
+
+            <!--           
           <button
             mat-stroked-button
             color="primary"
-            (click)="view(row.QuoteID)"
-          >
-            View
-          </button>
-          <button
-            mat-stroked-button
-            color="primary"
-            (click)="updateModal(row.QuoteID)"
+            
           >
             Edit
           </button>
@@ -97,12 +109,12 @@
             (click)="delete(row.QuoteID)"
           >
             Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
+          </button> -->
+          </td>
+        </tr>
+      </tbody>
     </table>
-    <div class = 'pagination'>
+    <div class="pagination">
       <div>
         showing {{ startItem }} to {{ endItem }} of
         {{ filteredQuoteList.length }} items
