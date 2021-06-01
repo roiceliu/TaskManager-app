@@ -65,8 +65,8 @@ export class DataService {
 
     //UPDATE QUOTE BY ID
     updateQuote(id:number, data: IQuote) {
-        const body = new HttpParams().set("QuoteType", data.QuoteType).set("Contact", data.Contact).set("Task", data.Task).set("TaskType", data.TaskType).set("DueDate", data.DueDate.toDateString());
-
+        const body = new HttpParams().set("QuoteType", data.QuoteType).set("Contact", data.Contact).set("Task", data.Task).set("TaskType", data.TaskType).set("DueDate", data.DueDate.toISOString());
+        debugger;
         //set up reusable header
         return this.http.put<any>(`${this.baseUrl+ id}`, body, { headers: this.header }).pipe(
             catchError((e) => {

@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { filter, startWith } from 'rxjs/operators';
-import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 import { AuthenticationService } from 'src/app/_services/authentication.service';

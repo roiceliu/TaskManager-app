@@ -84,7 +84,7 @@
         <div>
           <input
             formControlName="DueDate"
-            type="date"
+            type="datetime-local"
             class="form-control"
             name="DueDate"
             required
@@ -124,126 +124,18 @@
         (click)="update(quote.QuoteID, quote)"
       >
       <span class="material-icons-outlined"> save </span>
-        Update
+      Update 
       </button>
       <button
         class="button btn-primary"
         (click)="cancel()"
       >
       <span class="material-icons-outlined"> {{ isView ? 'chevron_left':'cancel' }}</span>
-        {{ isView ? "Back" : "Cancel" }}
+       <span> {{ isView ? "Back" : "Cancel" }}</span>
       </button>
     </div>
   </div>
 </form>
 
-<!-- <div class="quoteForm-content">
-  <div class="formset">
-    <div class="top-row">
-      <mat-form-field class="form-group">
-        <mat-label>Quote Type: </mat-label>
-        <input
-          matInput
-          type="text"
-          class="form-control"
-          [(ngModel)]="quote.QuoteType"
-          name="QuoteType"
-          required
-          [disabled]="isView"
-        />
-        <mat-error> Quote Type is required </mat-error>
-      </mat-form-field>
 
-      <mat-form-field class="form-group">
-        <mat-label>QuoteID</mat-label>
-        <input
-          matInput
-          disabled
-          type="number"
-          class="form-control"
-          [(ngModel)]="quote.QuoteID"
-          name="QuoteID"
-        />
-      </mat-form-field>
-    </div>
-
-    <mat-form-field class="form-group">
-      <mat-label>Task Type: </mat-label>
-      <input
-        matInput
-        type="text"
-        class="form-control"
-        [(ngModel)]="quote.TaskType"
-        name="TaskType"
-        required
-        [disabled]="isView"
-      />
-      <mat-error> Task type is required </mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="form-group">
-      <mat-label>Contact: </mat-label>
-      <input
-        matInput
-        type="text"
-        class="form-control"
-        [(ngModel)]="quote.Contact"
-        name="Contact"
-        required
-        [disabled]="isView"
-      />
-      <mat-error> Contact is required </mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="form-group">
-      <mat-label >Due Date: </mat-label>
-      
-        <input
-        matInput
-        type="date"
-        class="form-control"
-        [ngModel]="quote.DueDate | date: 'yyyy-MM-dd'"
-        (ngModelChange)="quote.DueDate = $event"
-        name="DueDate"
-        required
-        [disabled]="isView"
-      />
-      <mat-error> Due date is required </mat-error>
-    
-      
-    </mat-form-field>
-
-    <mat-form-field class="textBox">
-      <mat-label>Task Description: </mat-label>
-      <textarea
-        matInput
-        name="Task"
-        class="form-control textBox"
-        [(ngModel)]="quote.Task"
-        [disabled]="isView"
-      ></textarea>
-    </mat-form-field>
-  </div>
-
-  <div mat-dialog-actions class="btn-section">
-    <button
-      mat-stroked-button
-      *ngIf="!isView"
-      color="primary"
-      class="button button-primary"
-      (click)="update(quote.QuoteID, quote)"
-      [mat-dialog-close]="'updated'"
-      cdkFocusInitial
-    >
-      Update
-    </button>
-    <button
-      mat-stroked-button
-      color="primary"
-      class="button button-primary"
-      (click)="cancel()"
-    >
-      {{ isView ? "Back" : "Cancel" }}
-    </button>
-  </div>
-</div> -->
+ 

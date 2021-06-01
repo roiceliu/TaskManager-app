@@ -30,6 +30,7 @@ export class AddQuoteComponent implements OnInit{
     }
 
     create() {
+        debugger;
         let val = this.form.value;
         if (this.form.invalid) return;
 
@@ -40,7 +41,7 @@ export class AddQuoteComponent implements OnInit{
             Contact: val.Contact,
             Task: val.Task,
             TaskType: val.TaskType,
-            DueDate: new Date(val.DueDate + ' ')
+            DueDate: new Date(val.DueDate)
         }
         this.dataService.createQuote(data).subscribe(
             () => {

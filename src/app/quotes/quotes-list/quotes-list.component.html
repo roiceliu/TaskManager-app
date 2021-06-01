@@ -70,12 +70,12 @@
       </th>
       <tbody>
         <tr *ngFor="let row of filteredQuoteList | paginate: PageConfig">
-          <td>{{ row.QuoteID }}</td>
-          <td>{{ row.QuoteType }}</td>
+          <td>{{ row.QuoteType | uppercase }}</td>
+          <td (click)="view(row.QuoteID)" style="color:blue; text-decoration: underline; cursor:pointer;">{{ row.QuoteID }}</td>
           <td>{{ row.Contact }}</td>
           <td>{{ row.Task }}</td>
           <td>{{ row.TaskType }}</td>
-          <td>{{ row.DueDate | date: "M/d/yy, h:mm a" }}</td>
+          <td>{{ row.DueDate | date :'MM-dd-yyyy'}}</td>
           <td>
             <span class="material-icons list-icons" (click)="view(row.QuoteID)">
               visibility

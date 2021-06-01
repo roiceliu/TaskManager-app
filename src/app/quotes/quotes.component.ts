@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
 
-import { DataService } from '../_services/data.service';
-import { IQuote } from '../_shared/interfaces';
+// import { DataService } from '../_services/data.service';
+// import { IQuote } from '../_shared/interfaces';
 
-@Component({
-  selector: 'app-quotes',
-  templateUrl: './quotes.component.html',
-  styleUrls: ['./quotes.component.css'],
-})
-export class QuotesComponent implements OnInit {
-  quotes: any[] = [];
+// @Component({
+//   selector: 'app-quotes',
+//   templateUrl: './quotes.component.html',
+//   styleUrls: ['./quotes.component.css'],
+// })
+// export class QuotesComponent implements OnInit {
+//   quotes: any[] = [];
 
-  constructor(private dataService: DataService) {}
+//   constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {
+//   ngOnInit(): void {
    
-  }
+//   }
   
-}
+// }
 

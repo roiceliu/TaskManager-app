@@ -24,7 +24,7 @@ export class QuoteUpdateDialogComponent implements OnInit {
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<QuoteUpdateDialogComponent>
-  ) {}
+  ) { }
 
   ngOnInit() {
     // + is a shortcut way to convert type --> number: get from url:param
@@ -39,7 +39,7 @@ export class QuoteUpdateDialogComponent implements OnInit {
       (data) => {
         this.quote = data;
         // this.quote.DueDate = new Date(data.DueDate);
-            
+
         //bind form with validators
         this.form = new FormGroup({
           QuoteID: new FormControl({
@@ -47,25 +47,25 @@ export class QuoteUpdateDialogComponent implements OnInit {
             disabled: true,
           }),
           QuoteType: new FormControl({
-              value: this.quote.QuoteType,
-              disabled: this.isView
+            value: this.quote.QuoteType,
+            disabled: this.isView
           }, Validators.required),
           Contact: new FormControl({
             value: this.quote.Contact,
             disabled: this.isView
-        }, Validators.required),
+          }, Validators.required),
           TaskType: new FormControl({
             value: this.quote.TaskType,
             disabled: this.isView
-        }, Validators.required),
-            DueDate: new FormControl({
-            value: new Date(this.quote.DueDate).toISOString().substring(0, 10),
+          }, Validators.required),
+          DueDate: new FormControl({
+            value: new Date(this.quote.DueDate).toISOString().substring(0, 16),
             disabled: this.isView
-        }, Validators.required),
+          }, Validators.required),
           Task: new FormControl({
             value: this.quote.Task,
             disabled: this.isView
-        }, Validators.required),
+          }, Validators.required),
         });
       },
       (e) => {
@@ -75,35 +75,34 @@ export class QuoteUpdateDialogComponent implements OnInit {
   }
 
   // FIXME: need to check if form is valid or not
-    update(id: number, quote: IQuote) {
-        debugger;
-        this.submitted = true;
+  update(id: number, quote: IQuote) {
+    debugger;
+    this.submitted = true;
     //check on form's inputs
-        if (this.form.invalid) return;
-        
+    if (this.form.invalid) return;
+
 
     //bind form value to send to update
-        let val = this.form.value;
-        if (!(val.DueDate instanceof Date))
-            val.DueDate = new Date(val.DueDate + ' ');
-        
-        const updateData:IQuote = {
-            QuoteID : val.QuoteID,
-            QuoteType : val.QuoteType,
-            Contact: val.Contact,
-            Task: val.Task,
-            TaskType: val.TaskType,
-            DueDate: val.DueDate
-        }
+    let val = this.form.value;
+    if (!(val.DueDate instanceof Date))
+      val.DueDate = new Date(val.DueDate);
+
+    const updateData: IQuote = {
+      QuoteID: val.QuoteID,
+      QuoteType: val.QuoteType,
+      Contact: val.Contact,
+      Task: val.Task,
+      TaskType: val.TaskType,
+      DueDate: val.DueDate
+    }
 
     this.dataService.updateQuote(this.id, updateData).subscribe(
-      () => {},
+      () => {this.dialogRef.close({ data: 'updated' }); },
       (e) => {
         console.log('Update quote has error: ' + e);
       }
-        );
-        
-        this.dialogRef.close({data:'updated'});
+    );
+ 
   }
 
   cancel() {

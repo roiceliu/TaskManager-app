@@ -49,6 +49,12 @@ legend {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.btn-primary:hover{
+  background-color:cornflowerblue;
+  transition: 0.2s ease-in-out;
 }
 
 
